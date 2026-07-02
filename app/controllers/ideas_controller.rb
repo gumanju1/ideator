@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
   def index
-    @ideas = Idea.all
+     @pagy, @ideas = pagy(Idea.order(created_at: :desc))
   end
 
   def create
