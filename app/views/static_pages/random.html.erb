@@ -1,10 +1,23 @@
-<h1>Random Idea</h1>
+<% if @idea.present? %>
 
-<p>
-  <%= @idea.description %>
-</p>
+  <h1 class="mb-5 text-2xl font-bold">Inspire Me</h1>
 
-<p>
-  <strong>Author:</strong>
-  <%= @idea.author %>
-</p>
+  <div class="rounded overflow-hidden shadow-lg">
+    <div class="px-6 py-8 h-full">
+
+      <div class="font-bold text-xl mb-2">
+        <%= @idea.description %>
+      </div>
+
+      <p class="text-sm text-gray-700">
+        <%= @idea.author %>
+      </p>
+
+    </div>
+  </div>
+
+<% else %>
+
+  <h2 class="text-xl font-bold">No ideas available yet.</h2>
+
+<% end %>
