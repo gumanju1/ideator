@@ -5,6 +5,12 @@ class IdeasController < ApplicationController
 
   def create
     @idea = Idea.create(idea_params)
+
+    if @idea.valid?
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   def edit
@@ -19,6 +25,12 @@ class IdeasController < ApplicationController
     else
       redirect_to edit_idea_path(params[:id])
     end
+  end
+
+  def destroy
+    @idea = Idea.find(params[:id])
+    @idea.destroy
+    redirect_to root_path
   end
 
   private
