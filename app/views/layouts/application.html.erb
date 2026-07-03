@@ -30,9 +30,11 @@
     <%= render 'shared/nav' %>
 
     <div class="max-w-screen-xl mx-auto p-1 md:p-4">
+      <%= render 'shared/flash_messages' %>
       <%= yield %>
     </div>
 
     <%= render 'shared/footer' %>
+
   </body>
 </html>
