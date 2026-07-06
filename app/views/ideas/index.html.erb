@@ -1,17 +1,20 @@
 <div data-controller="modal">
 
-  <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+  <button
+    data-modal-target="default-modal"
+    data-modal-toggle="default-modal"
     class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-    type="button">
-    Add New Idea
+    type="button">Create New Idea
   </button>
 
-  <!-- Modal -->
   <div id="default-modal" class="hidden fixed inset-0 z-50 justify-center items-center">
     <div class="relative p-4 w-full max-w-2xl mx-auto">
       <div class="bg-white rounded-lg shadow">
 
-        <%= simple_form_for Idea.new, data: { action: "submit->modal#hideModal" } do |f| %>
+        <%= simple_form_for Idea.new,
+        data: {
+          action: "turbo:submit-end->modal#hideModal"
+          } do |f| %>
 
           <div class="p-4 border-b">
             <h3 class="text-xl font-semibold">Add New Idea</h3>
@@ -26,7 +29,8 @@
             <%= f.submit "Submit",
               class: "text-white bg-blue-700 px-4 py-2 rounded" %>
 
-            <button type="button"
+            <button
+              type="button"
               data-modal-hide="default-modal"
               class="text-white bg-red-700 px-4 py-2 rounded">
               Cancel
@@ -38,15 +42,20 @@
       </div>
     </div>
   </div>
+
 </div>
 
-<!-- IDEAS LIST -->
 <div class="max-w-screen-xl mx-auto mt-6 space-y-4">
 
   <% @ideas.each do |idea| %>
     <div class="rounded shadow-lg p-6">
-      <div class="font-bold text-xl mb-2"><%= idea.description %></div>
-      <p class="text-sm text-gray-700"><%= idea.author %></p>
+      <div class="font-bold text-xl mb-2">
+        <%= idea.description %>
+      </div>
+
+      <p class="text-sm text-gray-700">
+        <%= idea.author %>
+      </p>
 
       <div class="flex gap-2 mt-4">
         <%= button_to "Delete",
