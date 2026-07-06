@@ -1,7 +1,8 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
-import "flowbite/dist/flowbite.turbo"
+
+import { initFlowbite } from "flowbite"
 
 document.addEventListener("turbo:load", () => {
-  console.log("Turbo loaded")
+  initFlowbite()
 })
