@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "simple_form", "~> 5.3"
-gem "pagy", "~> 6.2"
+gem "pagy", "~> 43.6"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.3"
